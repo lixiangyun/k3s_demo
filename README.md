@@ -76,5 +76,11 @@ systemctl status k3s.agent.service
 k3s kubectl get node
 ```
 
+## 使用docker容器
 
+k3s agent默认使用containerd，如果需要替换，请修改k3s.agent.service，如下:
+
+```
+ExecStart=/usr/local/bin/k3s agent --server https://k3s.server:6443 --token ${NODE_TOKEN} --docker
+```
 
